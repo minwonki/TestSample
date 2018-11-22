@@ -7,11 +7,12 @@ import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object APIClient {
 
-    fun getClient(): Retrofit? {
+    fun getClient(): Retrofit {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
         val client = OkHttpClient.Builder()
@@ -21,6 +22,7 @@ object APIClient {
         return Retrofit.Builder()
             .baseUrl("https://api-test-198703.appspot.com/")
             .addConverterFactory(GsonConverterFactory.create(initGson()))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(client)
             .build()
     }

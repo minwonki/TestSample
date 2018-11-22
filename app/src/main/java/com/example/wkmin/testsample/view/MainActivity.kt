@@ -2,20 +2,22 @@ package com.example.wkmin.testsample.view
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wkmin.testsample.R
 import com.example.wkmin.testsample.adpter.FlexibleAdapter
 import com.example.wkmin.testsample.databinding.ActivityMainBinding
 import com.example.wkmin.testsample.event.EventBusInterface
+import com.example.wkmin.testsample.network.APIClient
+import com.example.wkmin.testsample.network.APIInterface
 import com.example.wkmin.testsample.util.RxEventBus
+import com.example.wkmin.testsample.util.inject
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
 class MainActivity : BaseActivity() {
 
     private val model by lazy {
-        ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
+        MainViewModel(APIClient.getClient().create(APIInterface::class.java)).inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
