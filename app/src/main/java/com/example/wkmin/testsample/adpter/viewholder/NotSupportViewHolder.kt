@@ -8,10 +8,12 @@ import com.example.wkmin.testsample.util.RxEventBus
 class NotSupportViewHolder(itemView: View) : BaseViewHolder<BaseItem>(itemView) {
 
     override fun onBindView(item: BaseItem) {
-        println("NotSupportViewHolder")
+        itemView.tag = item
     }
 
     override fun onItemClick() {
-        RxEventBus.sendEvent(AlertDialogEvent("NotSupport"))
+        val item = itemView.tag
+        if (item is BaseItem)
+            RxEventBus.sendEvent(AlertDialogEvent(item.type.name))
     }
 }

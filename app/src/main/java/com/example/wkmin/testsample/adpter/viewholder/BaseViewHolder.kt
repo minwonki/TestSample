@@ -3,7 +3,7 @@ package com.example.wkmin.testsample.adpter.viewholder
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
-abstract class BaseViewHolder<ITEM>(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+abstract class BaseViewHolder<ITEM>(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     init {
         itemView.setOnClickListener { onItemClick() }

@@ -8,10 +8,12 @@ import com.example.wkmin.testsample.util.RxEventBus
 class CompanyViewHolder(itemView: View) : BaseViewHolder<CompanyCell>(itemView) {
 
     override fun onBindView(item: CompanyCell) {
-        println("CompanyViewHolder")
+        itemView.tag = item
     }
 
     override fun onItemClick() {
-        RxEventBus.sendEvent(ToastEvent("Company"))
+        val item = itemView.tag
+        if (item is CompanyCell)
+            RxEventBus.sendEvent(ToastEvent(item.name))
     }
 }

@@ -9,9 +9,12 @@ class ReviewViewHolder(itemView: View) : BaseViewHolder<ReviewCell>(itemView) {
 
     override fun onBindView(item: ReviewCell) {
         println("Review")
+        itemView.tag = item
     }
 
     override fun onItemClick() {
-        RxEventBus.sendEvent(ToastEvent("Review"))
+        val item = itemView.tag
+        if (item is ReviewCell)
+            RxEventBus.sendEvent(ToastEvent(item.cons))
     }
 }

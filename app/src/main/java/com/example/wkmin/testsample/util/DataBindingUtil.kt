@@ -9,7 +9,7 @@ class DataBindingUtil {
     companion object {
         @BindingAdapter("list_items")
         @JvmStatic
-        fun setBindItems(view: androidx.recyclerview.widget.RecyclerView, items: ArrayList<BaseItem>) {
+        fun setBindItems(view: RecyclerView, items: ArrayList<BaseItem>) {
             val adapter = view.adapter as? FlexibleAdapter ?: FlexibleAdapter().apply { view.adapter = this }
             adapter.items = items
             adapter.notifyDataSetChanged()

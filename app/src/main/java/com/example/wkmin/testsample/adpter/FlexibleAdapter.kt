@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.example.wkmin.testsample.adpter.data.BaseItem
 import com.example.wkmin.testsample.adpter.viewholder.BaseViewHolder
 
-class FlexibleAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<BaseViewHolder<*>>() {
+class FlexibleAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     var items = ArrayList<BaseItem>()
 

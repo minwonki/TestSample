@@ -1,6 +1,5 @@
 package com.example.wkmin.testsample.view
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider

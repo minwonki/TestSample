@@ -8,10 +8,12 @@ import com.example.wkmin.testsample.util.RxEventBus
 class InterviewViewHolder(itemView: View) : BaseViewHolder<InterviewCell>(itemView) {
 
     override fun onBindView(item: InterviewCell) {
-        println("CompanyViewHolder")
+        itemView.tag = item
     }
 
     override fun onItemClick() {
-        RxEventBus.sendEvent(SnackBarEvent("InterView"))
+        val item = itemView.tag
+        if (item is InterviewCell)
+            RxEventBus.sendEvent(SnackBarEvent(item.interviewQuestion))
     }
 }
