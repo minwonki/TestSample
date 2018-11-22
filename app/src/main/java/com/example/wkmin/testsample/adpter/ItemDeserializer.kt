@@ -25,7 +25,7 @@ class ItemDeserializer : JsonDeserializer<BaseItem> {
                 item.type = classType
             }
         } catch (e: Exception) {
-            // Enum 에 필요한 값이 없을 경우 java.lang.IllegalArgumentException 발생함.
+            // Enum 에 cell_type 이 없을 경우 java.lang.IllegalArgumentException 발생함.
             println(e)
             item = BaseItem()
         }

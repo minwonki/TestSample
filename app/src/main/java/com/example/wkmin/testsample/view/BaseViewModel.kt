@@ -1,5 +1,6 @@
 package com.example.wkmin.testsample.view
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
+
 
 open class BaseViewModel: ViewModel()

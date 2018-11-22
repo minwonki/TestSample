@@ -1,7 +1,7 @@
 package com.example.wkmin.testsample.view
 
-import android.databinding.ObservableArrayList
-import android.databinding.ObservableField
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableField
 import com.example.wkmin.testsample.adpter.data.BaseItem
 import com.example.wkmin.testsample.adpter.data.BaseItemList
 import com.example.wkmin.testsample.network.APIClient
@@ -22,20 +22,19 @@ class MainViewModel : BaseViewModel() {
     private fun requestList() {
         val service = APIClient.getClient()?.create(APIInterface::class.java)
 
-        service.let {
-            val call = service?.requestList()
-            call?.enqueue(object : Callback<BaseItemList> {
-                override fun onFailure(call: Call<BaseItemList>, t: Throwable) {
-                    println("onFailure")
-                }
+        service?.requestList()?.enqueue(object : Callback<BaseItemList> {
+            override fun onFailure(call: Call<BaseItemList>, t: Throwable) {
+                println("onFailure")
 
-                override fun onResponse(call: Call<BaseItemList>, response: Response<BaseItemList>) {
-                    println("onResponse")
-                    val body = response.body()
-                    items.addAll(body?.items!!)
-                    println("onResponse item.size:${items.size}")
-                }
-            })
-        }
+            }
+
+            override fun onResponse(call: Call<BaseItemList>, response: Response<BaseItemList>) {
+                println("onResponse")
+                val body = response.body()
+                items.addAll(body?.items!!)
+                println("onResponse item.size:${items.size}")
+            }
+        })
+
     }
 }

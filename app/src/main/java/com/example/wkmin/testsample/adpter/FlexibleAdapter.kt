@@ -1,13 +1,13 @@
 package com.example.wkmin.testsample.adpter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.wkmin.testsample.adpter.data.BaseItem
 import com.example.wkmin.testsample.adpter.viewholder.BaseViewHolder
 
-class FlexibleAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
+class FlexibleAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     var items = ArrayList<BaseItem>()
 

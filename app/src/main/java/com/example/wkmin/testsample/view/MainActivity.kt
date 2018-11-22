@@ -1,18 +1,22 @@
 package com.example.wkmin.testsample.view
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import android.app.ProgressDialog
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wkmin.testsample.R
 import com.example.wkmin.testsample.adpter.FlexibleAdapter
 import com.example.wkmin.testsample.databinding.ActivityMainBinding
+import com.example.wkmin.testsample.event.EventBusInterface
+import com.example.wkmin.testsample.util.RxEventBus
+import io.reactivex.Observer
+import io.reactivex.disposables.Disposable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val model by lazy {
-        ViewModelProviders.of(this).get(MainViewModel::class.java)
+        ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +27,33 @@ class MainActivity : AppCompatActivity() {
         binding.model = model
         binding.list.layoutManager = LinearLayoutManager(this)
         binding.list.adapter = FlexibleAdapter()
+
+        eventObserve()
+
+    }
+
+    private fun eventObserve() {
+        RxEventBus.getEvent()
+            .compose(bindToLifecycle())
+            .subscribe(object : Observer<EventBusInterface>{
+                override fun onComplete() {
+                    println("onComplete")
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                    println("onSubscribe")
+                }
+
+                override fun onNext(t: EventBusInterface) {
+                    println("onNext:$t")
+                    t.show(this@MainActivity)
+                }
+
+                override fun onError(e: Throwable) {
+                    println("onError:$e")
+                }
+            })
     }
 
 }
+

@@ -2,6 +2,8 @@ package com.example.wkmin.testsample.adpter.viewholder
 
 import android.view.View
 import com.example.wkmin.testsample.adpter.data.InterviewCell
+import com.example.wkmin.testsample.event.SnackBarEvent
+import com.example.wkmin.testsample.util.RxEventBus
 
 class InterviewViewHolder(itemView: View) : BaseViewHolder<InterviewCell>(itemView) {
 
@@ -9,4 +11,7 @@ class InterviewViewHolder(itemView: View) : BaseViewHolder<InterviewCell>(itemVi
         println("CompanyViewHolder")
     }
 
+    override fun onItemClick() {
+        RxEventBus.sendEvent(SnackBarEvent("InterView"))
+    }
 }
