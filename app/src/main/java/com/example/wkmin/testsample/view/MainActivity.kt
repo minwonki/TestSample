@@ -22,7 +22,8 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
+            this,
             R.layout.activity_main
         )
         binding.model = model
@@ -36,7 +37,7 @@ class MainActivity : BaseActivity() {
     private fun eventObserve() {
         RxEventBus.getEvent()
             .compose(bindToLifecycle())
-            .subscribe(object : Observer<EventBusInterface>{
+            .subscribe(object : Observer<EventBusInterface> {
                 override fun onComplete() {
                     println("onComplete")
                 }
