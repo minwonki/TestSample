@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.SecondActivity">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="normal"
+            android:text="샘플 Sample 001" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="샘플 Sample 002" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="샘플 Sample 003" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="샘플 Sample 004" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif"
+            android:text="샘플 Sample 005" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-black"
+            android:text="샘플 Sample 006" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-condensed"
+            android:text="샘플 Sample 007" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-condensed-light"
+            android:text="샘플 Sample 008" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-light"
+            android:text="샘플 Sample 009" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-medium"
+            android:text="샘플 Sample 010" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-smallcaps"
+            android:text="샘플 Sample 011" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="san-serif-thin"
+            android:text="샘플 Sample 012" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="샘플 Sample 013" tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
+            android:text="샘플 Sample 014" tools:ignore="HardcodedText"/>
+
+</LinearLayout>
