@@ -3,12 +3,9 @@ package com.example.wkmin.testsample.view
 import androidx.databinding.ObservableArrayList
 import com.example.wkmin.testsample.adpter.data.BaseItem
 import com.example.wkmin.testsample.adpter.data.BaseItemList
-import com.example.wkmin.testsample.event.ToastEvent
 import com.example.wkmin.testsample.network.APIInterface
-import com.example.wkmin.testsample.util.RxEventBus
-import io.reactivex.SingleObserver
+import com.example.wkmin.testsample.network.BaseSingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class MainViewModel(private val service: APIInterface) : BaseViewModel() {
@@ -23,21 +20,11 @@ class MainViewModel(private val service: APIInterface) : BaseViewModel() {
         service.requestList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : SingleObserver<BaseItemList>{
+            .subscribe(object : BaseSingleObserver<BaseItemList>(disposable){
                 override fun onSuccess(t: BaseItemList) {
+                    super.onSuccess(t)
                     items.addAll(t.items)
-                    RxEventBus.sendEvent(ToastEvent("onSuccess:size:${items.size}"))
                 }
-
-                override fun onSubscribe(d: Disposable) {
-                    RxEventBus.sendEvent(ToastEvent("onSubscribe"))
-                }
-
-                override fun onError(e: Throwable) {
-                    RxEventBus.sendEvent(ToastEvent("onSubscribe"))
-                }
-
             })
-
     }
 }

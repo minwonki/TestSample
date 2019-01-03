@@ -1,6 +1,5 @@
 package com.example.wkmin.testsample.view
 
-import android.os.Bundle
 import com.example.wkmin.testsample.event.AlertDialogEvent
 import com.example.wkmin.testsample.event.EventBusInterface
 import com.example.wkmin.testsample.event.SnackBarEvent
@@ -12,8 +11,8 @@ import io.reactivex.disposables.Disposable
 
 abstract class BaseActivity : RxAppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         eventObserve()
     }
 
