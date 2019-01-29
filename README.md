@@ -4,8 +4,9 @@ Kotlin 연습 Project
 * Retrofit2 + RxJAVA 
   * 기본 Network 구조
 
-* AAC MVVM + databinding 
+* AAC MVVM + databinding + 앱 아키텍처 가이드
   * 기본 구조
+  * LiveData
 
 * EventBus 사용 (RxJAVA)
   * VM 에서 발생하는 유저 이벤트 또는 Activity가 필요한 작업을 Activity로 옮기는 역활
